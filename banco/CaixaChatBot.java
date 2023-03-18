@@ -42,7 +42,7 @@ public class CaixaChatBot {
 
         if (identificaConta == 1) {
 
-            System.out.println("Digite seu nome e cpf respectivamente para criar sua conta eter acesso ao caixa.");
+            System.out.println("Digite seu nome e cpf respectivamente para criar sua conta e ter acesso ao caixa.");
             nome = sc.nextLine();
             cpf = sc.nextLine();
             conta = new ContaSimples(new Pessoa(nome, cpf));
