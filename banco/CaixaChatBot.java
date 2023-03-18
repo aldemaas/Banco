@@ -38,59 +38,21 @@ public class CaixaChatBot {
         Conta conta;
 
 
-        if (identificaConta == 1){
-
+        if (identificaConta == 1) {
 
             System.out.println("Digite seu nome e cpf respectivamente para criar sua conta eter acesso ao caixa.");
             nome = sc.nextLine();
             cpf = sc.nextLine();
-            conta = new ContaSimples( new Pessoa(nome, cpf));
+            conta = new ContaSimples(new Pessoa(nome, cpf));
             Agencia.addConta(conta);
-
-            while (acao !=6) {
-                System.out.println(" 1. Depositar\n 2. Sacar\n 3. Extrato\n 4. Transferir\n 5. Saldo\n 6. Sair" );
-
-
-                acao = sc.nextInt();
-
-                if (acao == 1) {
-                    System.out.println("Digite o valor do depósito");
-                    valor = sc.nextDouble();
-                    conta.depositar(valor);
-                }
-                else if (acao == 2) {
-                    System.out.println("Digite o valor do saque");
-                    valor = sc.nextDouble();
-                    conta.sacar(valor);
-                }
-                else if (acao == 3) {
-                    System.out.println("Este é o seu extrato");
-                }
-                else if (acao == 4) {
-                    System.out.println("Digite o número da conta que deseja transferir");
-                    Conta destino = Agencia.localizarConta(sc.nextInt());
-                    System.out.println("Agora digite o valor da transferência");
-                    valor = sc.nextDouble();
-                    conta.transferir(destino, valor);
-
-                }
-                else if (acao == 5) {
-                    System.out.println(conta.getSaldo());
-                }
-                else if (acao == 6) {
-                    System.out.println(conta.getSaldo());
-                }
-            }
         }
 
-        if (identificaConta == 2){
+        if (identificaConta == 2) {
 
             System.out.print("Digite o numero da sua conta: ");
             numeroConta = sc.nextInt();
             conta = Agencia.localizarConta(numeroConta);
-
-
-
+        }
 
             while (acao !=6) {
                 System.out.println(" 1. Depositar\n 2. Sacar\n 3. Extrato\n 4. Transferir\n 5. Saldo\n 6. Sair" );
@@ -127,7 +89,7 @@ public class CaixaChatBot {
                     System.out.println("Seu saldo é: " + conta.getSaldo());
                 }
         }
-    }
         Agencia.fecharCaixa();
+    }
 }
-}
+
