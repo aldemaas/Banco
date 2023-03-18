@@ -1,6 +1,7 @@
 package banco;
 
 import banco.entidades.*;
+import banco.entidades.util.Data;
 
 import java.util.Iterator;
 import java.util.Locale;
@@ -70,7 +71,24 @@ public class CaixaChatBot {
                 valor = sc.nextDouble();
                 conta.sacar(valor);
             } else if (acao == 3) {
-                System.out.println("Este é o seu extrato");
+                System.out.println("Digite a data inicial");
+                System.out.print("Dia:");
+                int diaInicial = sc.nextInt();
+                System.out.print("Mês");
+                int mesInicial = sc.nextInt() - 1;
+                System.out.print("Ano:");
+                int anoInicial = sc.nextInt();
+
+                System.out.println("Digite a data final");
+                System.out.print("Dia:");
+                int diaFinal = sc.nextInt();
+                System.out.print("Mês");
+                int mesFinal = sc.nextInt() - 1;
+                System.out.print("Ano:");
+                int anoFinal = sc.nextInt();
+
+                System.out.println(conta.criarExtrato(new Data(diaInicial, mesInicial, anoFinal), new Data(diaFinal, mesFinal, anoFinal)).formatar());
+
             } else if (acao == 4) {
                 System.out.println();
                 System.out.println("Digite o número da conta que deseja transferir");
@@ -81,6 +99,7 @@ public class CaixaChatBot {
 
             } else if (acao == 5) {
                 System.out.println("Seu saldo é: " + conta.getSaldo());
+
             } else if (acao == 6) {
                 System.out.println("Seu saldo é: " + conta.getSaldo());
             }
